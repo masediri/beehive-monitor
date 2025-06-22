@@ -9,8 +9,7 @@ const int HX711_sck = 7; //mcu > HX711 sck pin
 const int battery_sck = A0; //input to compute battery level
 const int tension_card = 3.3;
 
-const int msg_cycle = 3600 * 12; // sends message every 12h
-// si on fait 2h la batterie tient 2 mois
+const int msg_cycle = 1000 * 3600 * 12; // sends message every 12h
 
 //for 1D97F5
 const float calibrationValue = 19.64;
