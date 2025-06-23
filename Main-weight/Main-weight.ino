@@ -53,11 +53,11 @@ void setup() {
   
   if (!isDebug) {
     Serial.println("on attend 3 min avant l'envoi du premier message le temps de poser la ruche");
-        LowPower.deepSleep(1000 * 60 * 3);
+    LowPower.deepSleep(1000 * 60 * 3);
   }
   else {
     Serial.println("on attend juste 1 min");
-        LowPower.deepSleep(1000 * 60);
+    LowPower.deepSleep(1000 * 60);
   }
 
 }
@@ -79,6 +79,8 @@ void loop() {
     Serial.println("sending done");
 
   Serial.println("We go for sleep for the next 12h");
+  //
+  LoadCell.powerDown();
   LowPower.deepSleep(msg_cycle);
   }
   else {
@@ -89,8 +91,8 @@ void loop() {
 
     //wait for 1 min
     Serial.println("We wait for 1 min for the next capture");
-    delay(1000*60);
-  }
+    LoadCell.powerDown();
+    LowPower.deepSleep(1000*60);  }
 }
 
 // send value deca-grams to not transfert useless data
